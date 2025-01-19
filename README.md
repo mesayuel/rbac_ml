@@ -12,59 +12,66 @@ Aplikasi Role-Based Access Control (RBAC) sederhana dengan deteksi intent menggu
 
 ### Struktur Folder
 
-rbac_app/
+rbac_ml_app/
+
 ├── app.py # Aplikasi Flask utama
+
 ├── models.py # Model database
+
 ├── ml.py # Komponen Machine Learning
+
 ├── requirements.txt # Dependensi
+
 └── test_app.py # Unit tests
 
 
 ## Instalasi
 
-1. Clone repository
-python -m venv venv
+#### 1. Clone repository
+  python -m venv venv
 
-2. Buat virtual environtment
+#### 2. Buat virtual environtment
 
 #### Windows
-venv\Scripts\activate
+  venv\Scripts\activate
 
 #### macOS/Linux
-source venv/bin/activate
+  source venv/bin/activate
 
-3. Install dependencies:
-pip install -r requirements.txt
-python -m spacy download en_core_web_sm
+#### 3. Install dependencies:
+  pip install -r requirements.txt
 
-4. Jalankan aplikasi
-python app.py
+#### 4. Jalankan aplikasi
+  python app.py
 
 Aplikasi akan berjalan di http://localhost:5000
 
-#### Komponen Machine Learning
+### Komponen Machine Learning
 Aplikasi menggunakan kombinasi spaCy dan scikit-learn untuk deteksi intent:
 
 spaCy: Untuk pemrosesan bahasa alami
-scikit-learn: Untuk klasifikasi teks menggunakan TF-IDF dan Naive Bayes
-Intent yang didukung:
 
-edit_document
-view_document
-delete_document
+scikit-learn: Untuk klasifikasi teks menggunakan TF-IDF dan Naive Bayes
+
+Intent yang didukung:
+- edit_document
+- view_document
+- delete_document
+  
 #### Database Schema
-Users
+
+- Users:
 id (Primary Key)
 username (Unique)
-Roles
+- Roles:
 id (Primary Key)
 name (Unique)
-Permissions
+- Permissions:
 id (Primary Key)
 name (Unique)
-Relationships
+- Relationships:
 user_roles (Many-to-Many)
 role_permissions (Many-to-Many)
 
-5. Jalankan test
-python -m unittest test_app.py
+#### 5. Jalankan test
+python -m unittest test_app.py -v
