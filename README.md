@@ -27,10 +27,10 @@ python -m venv venv
 
 2. Buat virtual environtment
 
-### Windows
+#### Windows
 venv\Scripts\activate
 
-### macOS/Linux
+#### macOS/Linux
 source venv/bin/activate
 
 3. Install dependencies:
@@ -41,6 +41,30 @@ python -m spacy download en_core_web_sm
 python app.py
 
 Aplikasi akan berjalan di http://localhost:5000
+
+#### Komponen Machine Learning
+Aplikasi menggunakan kombinasi spaCy dan scikit-learn untuk deteksi intent:
+
+spaCy: Untuk pemrosesan bahasa alami
+scikit-learn: Untuk klasifikasi teks menggunakan TF-IDF dan Naive Bayes
+Intent yang didukung:
+
+edit_document
+view_document
+delete_document
+#### Database Schema
+Users
+id (Primary Key)
+username (Unique)
+Roles
+id (Primary Key)
+name (Unique)
+Permissions
+id (Primary Key)
+name (Unique)
+Relationships
+user_roles (Many-to-Many)
+role_permissions (Many-to-Many)
 
 5. Jalankan test
 python -m unittest test_app.py
